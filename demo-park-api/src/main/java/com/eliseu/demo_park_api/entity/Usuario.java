@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.io.Serializable;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Getter @Setter @NoArgsConstructor
 @Entity
@@ -45,6 +46,25 @@ public class Usuario implements Serializable {
 
     public enum Role {
         ROLE_ADMIN, ROLE_CLIENTE
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return Objects.equals(id, usuario.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                '}';
     }
 }
