@@ -1,0 +1,6 @@
+Entrar no diretório do arquivo pelo cmd
+Executar o arquivo jar
+java -jar base-v1.1.jar
+
+Abrir pasta na IDE, implementar os metodos e executar o código.
+Testar as requisições via postman.
