@@ -30,9 +30,12 @@ public class UsuarioService {
         if (!novaSenha.equals(confirmaSenha)) {
             throw new RuntimeException("Nova senha não confere com confirmação de senha.");
         }
-
-        Usuario user = buscarPorId(id);
-        user.setPassword(password);
+            Usuario user = buscarPorId(id);
+        if(!user.getPassword().equals(senhaAtual)){
+            throw new RuntimeException("Sua senha não confere."); 
+        }   
+        
+        user.setPassword(novaSenha);
         return user;
     }
 
